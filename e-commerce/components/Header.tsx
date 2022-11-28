@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Logo from "../src/assets/images/Logo_univpecs.png";
+import Logo from "../assets/images/Logo_univpecs.png";
 import {
   SearchIcon,
   ShoppingBagIcon,
@@ -16,7 +16,7 @@ function Header() {
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
           <div className="relative  h-20 w-20 cursor-pointer transition hover:opacity-100">
-            <Image src={Logo} object-contain alt={""} />
+            <Image src={Logo} className="object-contain layout-fill " alt={""} />
           </div>
         </Link>
       </div>
