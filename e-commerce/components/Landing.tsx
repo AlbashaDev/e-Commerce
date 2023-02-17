@@ -9,10 +9,10 @@ function Landing() {
       <div className="space-y-8 ">
         <h1 className="space-y-3 text-5xl font-semibold tracking-wide lg:text-6xl xl:text-7xl">
           <span className="block bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">
-            The University of Pécs
+            PTE TTK Official Shop
           </span>
-          <span className="block">Your All In One</span>
-          <span className="block">Shop</span>
+          <span className="block">All you Favourite</span>
+          <span className="block">TTK Merch</span>
         </h1>
 
         <div className="space-x-8">
