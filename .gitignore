@@ -3,3 +3,4 @@ Sanity
 .idea
 node_modules
 src
+.env.local
