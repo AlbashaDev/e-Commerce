@@ -21,6 +21,11 @@ export default {
       },
     },
     {
+      name: "description",
+      title: "Description",
+      type: "text",
+    },
+    {
       name: "parents",
       title: "Parent categories",
       type: "array",
