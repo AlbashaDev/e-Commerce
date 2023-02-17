@@ -1,6 +1,5 @@
-Sanity
 .next
 .idea
 node_modules
 src
-.env.local
+.env*.local
