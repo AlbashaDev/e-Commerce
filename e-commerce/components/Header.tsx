@@ -16,15 +16,19 @@ function Header() {
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
           <div className="relative  h-20 w-20 cursor-pointer transition hover:opacity-100">
-            <Image src={Logo} className="object-contain layout-fill " alt={""} />
+            <Image
+              src={Logo}
+              className="layout-fill object-contain "
+              alt={""}
+            />
           </div>
         </Link>
       </div>
       <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
-        <a className="headerLink">Product</a>
-        <a className="headerLink">Explore</a>
-        <a className="headerLink">Support</a>
-        <a className="headerLink">About</a>
+        <a className="headerLink hover:scale-125">Product</a>
+        <a className="headerLink hover:scale-125">Explore</a>
+        <a className="headerLink hover:scale-125">Support</a>
+        <a className="headerLink hover:scale-125">About</a>
       </div>
       <div className="flex items-center justify-center gap-x-4 md:w-1/5">
         <SearchIcon className="headerIcon" />
