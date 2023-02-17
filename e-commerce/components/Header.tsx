@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Logo from "../assets/images/pte_logo_magyar_angol.svg";
+import Logo from "../assets/images/emblema.svg";
 import {
   SearchIcon,
   ShoppingBagIcon,
@@ -15,7 +15,7 @@ function Header() {
     <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4">
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
-          <div className="w-100 h-100 relative cursor-pointer transition hover:opacity-100">
+          <div className="relative h-20 w-20 cursor-pointer opacity-75 transition hover:opacity-100">
             <Image
               src={Logo}
               className="layout-fill object-contain "
