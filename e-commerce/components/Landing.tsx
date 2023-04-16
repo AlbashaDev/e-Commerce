@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import t from "../assets/images/t.png";
+import pteT from "../assets/images/pteT.png";
 import Button from "./Button";
 
 function Landing() {
@@ -21,7 +21,7 @@ function Landing() {
         </div>
       </div>
       <div className="relative hidden h-[450px] w-[450px] transition-all duration-500 md:inline lg:h-[650px] lg:w-[600px]">
-        <Image className="object-contain" layout="fill" src={t} alt={""} />
+        <Image className="object-contain" layout="fill" src={pteT} alt={""} />
       </div>
     </section>
   );
