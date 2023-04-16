@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-import Logo from "../assets/images/emblema.svg";
+import React, { useState } from "react";
+import Logo from "../assets/images/TTKlogoZöldÉsFehér.svg";
+import LogoHover from "../assets/images/TTKLogoZöldÉsKék.png";
+
 import {
   SearchIcon,
   ShoppingBagIcon,
@@ -10,17 +12,38 @@ import {
 
 function Header() {
   const session = false;
+  const [hovered, setHovered] = useState(false);
+
+  const handleHover = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
 
   return (
     <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4">
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
-          <div className="relative h-20 w-20 cursor-pointer opacity-75 transition hover:opacity-100">
-            <Image
-              src={Logo}
-              className="layout-fill object-contain "
-              alt={""}
-            />
+          <div className="relative h-32 w-32 cursor-pointer transition">
+            {hovered ? (
+              <Image
+                src={LogoHover}
+                className="layout-fill h-32 w-32 object-contain "
+                alt={""}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleMouseLeave}
+              />
+            ) : (
+              <Image
+                src={Logo}
+                className="layout-fill h-48 w-48 object-contain"
+                alt={""}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleMouseLeave}
+              />
+            )}
           </div>
         </Link>
       </div>
