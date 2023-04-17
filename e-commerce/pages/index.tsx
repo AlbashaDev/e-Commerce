@@ -8,6 +8,7 @@ import Landing from "../components/Landing";
 import Product from "../components/Product";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
+import Basket from "../components/Basket";
 
 interface Props {
   categories: Category[];
@@ -31,6 +32,8 @@ const Home = ({ categories, products }: Props) => {
       </Head>
 
       <Header />
+
+      <Basket />
 
       {/* giving main an extra 100vh to pull the next section on it with -100vh */}
       <main className="realtive h-[200vh] bg-[#E7ECEE]">

@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import Logo from "../assets/images/TTKlogoZöldÉsFehér.svg";
 import LogoHover from "../assets/images/TTKLogoZöldÉsKék.png";
 
@@ -9,22 +9,26 @@ import {
   ShoppingBagIcon,
   UserIcon,
 } from "@heroicons/react/outline";
+import { useSelector } from "react-redux";
+import { selectBasketItems } from "../redux/basketSlice";
 
 function Header() {
+  //const { data: session } = useSession();
+  const items = useSelector(selectBasketItems);
   const session = false;
-  const [hovered, setHovered] = useState(false);
+  // // const [hovered, setHovered] = useState(false);
 
-  const handleHover = () => {
-    setHovered(true);
-  };
+  // const handleHover = () => {
+  //   setHovered(true);
+  // };
 
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
+  // const handleMouseLeave = () => {
+  //   setHovered(false);
+  // };
 
   return (
     <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4">
-      <div className="flex items-center justify-center md:w-1/5">
+      {/* <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
           <div className="relative h-32 w-32 cursor-pointer transition">
             {hovered ? (
@@ -46,23 +50,29 @@ function Header() {
             )}
           </div>
         </Link>
+      </div> */}
+      <div className="flex items-center justify-center md:w-1/5">
+        <Link href="/">
+          <div className="relative h-32 w-32 cursor-pointer opacity-75 transition hover:opacity-100">
+            <Image src={LogoHover} layout="fill" objectFit="contain" />
+          </div>
+        </Link>
       </div>
       <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
-        <a className="headerLink hover:scale-125">Product</a>
-        <a className="headerLink hover:scale-125">Explore</a>
-        <a className="headerLink hover:scale-125">Support</a>
-        <a className="headerLink hover:scale-125">About</a>
+        <a className="headerLink">Product</a>
+        <a className="headerLink">Explore</a>
+        <a className="headerLink">Support</a>
+        <a className="headerLink">About</a>
       </div>
       <div className="flex items-center justify-center gap-x-4 md:w-1/5">
         <SearchIcon className="headerIcon" />
-        <Link href={"/checkout"}>
+        <Link href="/checkout">
           <div className="relative cursor-pointer">
-            <span
-              className="absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center
-            justify-center rounded-full bg-gradient-to-r from-[#158342] to-[#104f60] text-[10px] text-white"
-            >
-              5
-            </span>
+            {items.length > 0 && (
+              <span className="absolute -right-1 -top-1 z-50 flex h-4 w-4 items-center justify-center rounded-full bg-gradient-to-r from-[#158342] to-[#104f60] text-[10px] text-white">
+                {items.length}
+              </span>
+            )}
             <ShoppingBagIcon className="headerIcon" />
           </div>
         </Link>
