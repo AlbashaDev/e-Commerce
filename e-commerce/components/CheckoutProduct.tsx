@@ -50,7 +50,7 @@ function CheckoutProduct({ id, items }: Props) {
           <h4 className="text-xl font-semibold lg:text-2xl">
             <Currency
               quantity={items.reduce((total, item) => total + item.price, 0)}
-              currency="HUF"
+              currency="KWD"
             />
           </h4>
           <button
