@@ -1,18 +1,19 @@
 import { Tab } from "@headlessui/react";
 import type { GetServerSideProps } from "next";
-import { Main } from "next/document";
 import Head from "next/head";
-import Image from "next/image";
 import Header from "../components/Header";
 import Landing from "../components/Landing";
 import Product from "../components/Product";
 import { fetchCategories } from "../utils/fetchCategories";
 import { fetchProducts } from "../utils/fetchProducts";
 import Basket from "../components/Basket";
+import { getSession } from "next-auth/react";
+import type { Session } from "next-auth";
 
 interface Props {
   categories: Category[];
   products: Product[];
+  session: Session | null;
 }
 
 const Home = ({ categories, products }: Props) => {
@@ -84,11 +85,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 ) => {
   const categories = await fetchCategories();
   const products = await fetchProducts();
+  const session = await getSession(context);
 
   return {
     props: {
       categories,
       products,
+      session,
     },
   };
 };
