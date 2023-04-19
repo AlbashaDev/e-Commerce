@@ -118,7 +118,7 @@ function Checkout() {
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
                   <h4>
-                    <Currency quantity={basketTotal} currency="KWD" />
+                    <Currency quantity={basketTotal} currency="HUF" />
                   </h4>
                 </div>
               </div>
@@ -147,7 +147,7 @@ function Checkout() {
                     <h4 className="mb-4 flex flex-col text-xl font-semibold">
                       Pay in full
                       <span>
-                        <Currency quantity={basketTotal} currency="KWD" />
+                        <Currency quantity={basketTotal} currency="HUF" />
                       </span>
                     </h4>
 
