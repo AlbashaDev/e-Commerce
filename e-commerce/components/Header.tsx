@@ -1,9 +1,6 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
 import React from "react";
-import Logo from "../assets/images/TTKlogoZöldÉsFehér.svg";
-import LogoHover from "../assets/images/TTKLogoZöldÉsKék.png";
-
 import {
   SearchIcon,
   ShoppingBagIcon,
@@ -11,11 +8,13 @@ import {
 } from "@heroicons/react/outline";
 import { useSelector } from "react-redux";
 import { selectBasketItems } from "../redux/basketSlice";
+import { signIn, signOut, useSession } from "next-auth/react";
+import Logo from "../assets/images/TTKlogoZöldÉsFehér.svg";
+import LogoHover from "../assets/images/TTKLogoZöldÉsKék.png";
 
 function Header() {
-  //const { data: session } = useSession();
+  const { data: session } = useSession();
   const items = useSelector(selectBasketItems);
-  const session = false;
   // // const [hovered, setHovered] = useState(false);
 
   // const handleHover = () => {
@@ -80,20 +79,17 @@ function Header() {
         {session ? (
           <Image
             src={
-              //session.user?.image ||
+              session.user?.image ||
               "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"
             }
             alt=""
             className="cursor-pointer rounded-full"
             width={34}
             height={34}
-            //onClick={() => signOut()}
+            onClick={() => signOut()}
           />
         ) : (
-          <UserIcon
-            className="headerIcon"
-            //onClick={() => signIn()}
-          />
+          <UserIcon className="headerIcon" onClick={() => signIn()} />
         )}
       </div>
     </header>

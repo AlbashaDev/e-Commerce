@@ -29,7 +29,9 @@
     "react-icons": "^4.7.1",
     "styled-components": "^5.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "2.8.7"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/AlbashaDev/e-Commerce.git"
