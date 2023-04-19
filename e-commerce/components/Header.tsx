@@ -15,54 +15,22 @@ import LogoHover from "../assets/images/TTKLogoZöldÉsKék.png";
 function Header() {
   const { data: session } = useSession();
   const items = useSelector(selectBasketItems);
-  // // const [hovered, setHovered] = useState(false);
-
-  // const handleHover = () => {
-  //   setHovered(true);
-  // };
-
-  // const handleMouseLeave = () => {
-  //   setHovered(false);
-  // };
 
   return (
     <header className="sticky top-0 z-30 flex w-full items-center justify-between bg-[#E7ECEE] p-4">
-      {/* <div className="flex items-center justify-center md:w-1/5">
-        <Link href="/">
-          <div className="relative h-32 w-32 cursor-pointer transition">
-            {hovered ? (
-              <Image
-                src={LogoHover}
-                className="layout-fill h-32 w-32 object-contain "
-                alt={""}
-                onMouseEnter={handleHover}
-                onMouseLeave={handleMouseLeave}
-              />
-            ) : (
-              <Image
-                src={Logo}
-                className="layout-fill h-48 w-48 object-contain"
-                alt={""}
-                onMouseEnter={handleHover}
-                onMouseLeave={handleMouseLeave}
-              />
-            )}
-          </div>
-        </Link>
-      </div> */}
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
-          <div className="relative h-32 w-32 cursor-pointer opacity-75 transition hover:opacity-100">
+          <div className="relative h-24 w-24 cursor-pointer opacity-100 transition hover:opacity-90">
             <Image src={LogoHover} layout="fill" objectFit="contain" />
           </div>
         </Link>
       </div>
-      <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
+      {/* <div className="hidden flex-1 items-center justify-center space-x-8 md:flex">
         <a className="headerLink">Product</a>
         <a className="headerLink">Explore</a>
         <a className="headerLink">Support</a>
         <a className="headerLink">About</a>
-      </div>
+      </div> */}
       <div className="flex items-center justify-center gap-x-4 md:w-1/5">
         <SearchIcon className="headerIcon" />
         <Link href="/checkout">
