@@ -59,7 +59,7 @@ function Header({ products, categories }: Props) {
       </div> */}
       <div className="flex items-center justify-center md:w-1/5">
         <Link href="/">
-          <div className="relative h-32 w-32 cursor-pointer opacity-75 transition hover:opacity-100">
+          <div className="relative h-32 w-32 cursor-pointer opacity-100 transition hover:opacity-90">
             <Image src={LogoHover} layout="fill" objectFit="contain" />
           </div>
         </Link>
@@ -77,7 +77,11 @@ function Header({ products, categories }: Props) {
             onClick={() => setShowSearch(true)}
           />
         ) : (
-          <Search products={products} setShowSearch={setShowSearch} categories={categories} />
+          <Search
+            products={products}
+            setShowSearch={setShowSearch}
+            categories={categories}
+          />
         )}
 
         <Link href="/checkout">
