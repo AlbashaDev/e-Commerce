@@ -31,12 +31,30 @@ export default async function handler(
       // Create Checkout Sessions from body params
       const params: Stripe.Checkout.SessionCreateParams = {
         payment_method_types: ["card"],
-        // shipping_address_collection: {
-        //   allowed_countries: ["US", "CA", "GB"],
-        // },
+        phone_number_collection: {
+          enabled: true,
+        },
+         shipping_address_collection: {
+           allowed_countries: ["HU"],
+        },
+        
+        shipping_options: [
+          {
+            shipping_rate_data: {
+              type: 'fixed_amount',
+              fixed_amount: { amount: 0, currency: 'huf' },
+              display_name: 'Free shipping',
+              delivery_estimate: {
+                minimum: { unit: 'business_day', value: 2 },
+                maximum: { unit: 'business_day', value: 7 },
+              }
+            }
+          }],
+         
         line_items: transformedItems,
         payment_intent_data: {},
         mode: "payment",
+        invoice_creation: {enabled: true},
         success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/checkout`,
         metadata: {
